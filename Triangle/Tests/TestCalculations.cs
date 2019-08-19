@@ -6,7 +6,7 @@ namespace Tests
     public class TestCalculations
     {
         private Triangle _triangle;
-        private Calculable _shape;
+        private TriangleCalculateStrategy _triangleCalculate;
         
         [SetUp]
         public void Setup()
@@ -17,19 +17,19 @@ namespace Tests
                 .SetC(5)
                 .Build();
             
-            this._shape = new Calculable(this._triangle);
+            this._triangleCalculate = new TriangleCalculateStrategy();
         }
 
         [Test]
         public void TestArea()
         {
-            Assert.AreEqual(6, _shape.CalculateArea());
+            Assert.AreEqual(6, _triangleCalculate.Area(_triangle));
         }
 
         [Test]
         public void TestPerimeter()
         {
-            Assert.AreEqual(12,_shape.CalculatePerimeter());
+            Assert.AreEqual(12,_triangleCalculate.Perimeter(_triangle));
         }
     }
 }
