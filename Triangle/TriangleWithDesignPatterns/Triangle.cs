@@ -8,21 +8,21 @@ namespace TriangleWithDesignPatterns
         public double B { get; }
         public double C { get; }
 
-        public Triangle(TriangleBuilder builder)
+        public Triangle(double a, double b, double c)
         {
-            if (CheckIfAllPropertiesHasValue(builder.A, builder.B, builder.C) == false)
+            this.A = a;
+            this.B = b;
+            this.C = c;
+            
+            if (CheckIfAllArgsAreBiggerThan0() == false)
                 throw new ArgumentNullException();
-            
-            this.A = (double) builder.A;
-            this.B = (double) builder.B;
-            this.C = (double) builder.C;
-            
+
             if (CheckIfTriangleCanExist() == false)
                 throw new ArgumentException("This triangle cannot exist.");
         }
 
-        private bool CheckIfAllPropertiesHasValue(double? a, double? b, double? c) 
-            => a != null && b != null && c != null;
+        private bool CheckIfAllArgsAreBiggerThan0()
+            => A > 0 && B > 0 && C > 0;
 
         private bool CheckIfTriangleCanExist()
         {

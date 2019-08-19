@@ -2,9 +2,9 @@ namespace TriangleWithDesignPatterns
 {
     public class TriangleBuilder
     {
-        public double? A { get; private set; }
-        public double? B { get; private set; }
-        public double? C { get; private set; }
+        public double A { get; private set; } = -1;
+        public double B { get; private set; } = -1;
+        public double C { get; private set; } = -1;
 
         public TriangleBuilder()
         {
@@ -27,7 +27,7 @@ namespace TriangleWithDesignPatterns
             this.C = C;
             return this;
         }
-        
-        public Triangle Build() => new Triangle(this);
+
+        public Triangle Build() => new Triangle(A, B, C);
     }
 }
