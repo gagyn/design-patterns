@@ -2,7 +2,7 @@ namespace TriangleWithDesignPatterns
 {
     public interface ITriangleCalculateStrategy
     {
-        double Area(Triangle shape);
-        double Perimeter(Triangle shape);
+        double Area(Triangle triangle);
+        double Perimeter(Triangle triangle);
     }
 }

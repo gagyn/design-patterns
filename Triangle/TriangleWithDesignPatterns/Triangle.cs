@@ -8,16 +8,27 @@ namespace TriangleWithDesignPatterns
         public double B { get; }
         public double C { get; }
 
+        public Triangle(double a, double b)
+        {
+            this.A = a;
+            this.B = b;
+            this.C = Math.Sqrt(this.A + this.B);
+            
+            CheckArgs();
+        }
+        
         public Triangle(double a, double b, double c)
         {
             this.A = a;
             this.B = b;
             this.C = c;
-            
-            if (CheckIfAllArgsAreBiggerThan0() == false)
-                throw new ArgumentNullException();
 
-            if (CheckIfTriangleCanExist() == false)
+            CheckArgs();
+        }
+
+        private void CheckArgs()
+        {
+            if (CheckIfTriangleCanExist() == false || CheckIfAllArgsAreBiggerThan0() == false)
                 throw new ArgumentException("This triangle cannot exist.");
         }
 
@@ -26,11 +37,11 @@ namespace TriangleWithDesignPatterns
 
         private bool CheckIfTriangleCanExist()
         {
-            if (A + B < C)
+            if (A + B <= C)
                 return false;
-            if (A + C < B)
+            if (A + C <= B)
                 return false;
-            if (B + C < A)
+            if (B + C <= A)
                 return false;
             
             return true;

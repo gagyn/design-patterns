@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using NUnit.Framework;
 using TriangleWithDesignPatterns;
@@ -60,6 +61,23 @@ namespace Tests
                 var triangle = _triangles[i];
                 Assert.AreEqual(this._perimeters[i], _triangleCalculate.Perimeter(triangle));
             }
+        }
+
+        [Test]
+        public void TestRightTriangle()
+        {
+            var rts = new RightTriangleCalculateStrategy();
+            var triangle = new TriangleBuilder().SetA(8).SetB(6).Build();
+            
+            Assert.AreEqual(24, rts.Area(triangle));
+        }
+
+        [Test]
+        public void WrongTriangle()
+        {
+            var trB = new TriangleBuilder().SetA(59).SetB(30).SetC(100);
+            
+            Assert.Throws<ArgumentException>(() => trB.Build());
         }
     }
 }
