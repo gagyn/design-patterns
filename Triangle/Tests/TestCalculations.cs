@@ -16,31 +16,28 @@ namespace Tests
         };
         
         private List<Triangle> _triangles;
-        private TriangleCalculateStrategy _triangleCalculate;
-        
+
         [SetUp]
         public void Setup()
         {
             _triangles = new List<Triangle>
             {
-                new TriangleBuilder()
+                new TriangleBuilder(new RightTriangleCalculateStrategy())
                     .SetA(3)
                     .SetB(4)
                     .SetC(5)
                     .Build(),
-                new TriangleBuilder()
+                new TriangleBuilder(new RightTriangleCalculateStrategy())
                     .SetA(6)
                     .SetB(8)
                     .SetC(10)
                     .Build(),
-                new TriangleBuilder()
+                new TriangleBuilder(new TriangleCalculateStrategy())
                     .SetA(3)
                     .SetB(3)
                     .SetC(3)
                     .Build()
             };
-
-            _triangleCalculate = new TriangleCalculateStrategy();
         }
 
         [Test]
@@ -49,7 +46,7 @@ namespace Tests
             for (var i = 0; i < _triangles.Count; i++)
             {
                 var triangle = _triangles[i];
-                Assert.AreEqual(this._areas[i], _triangleCalculate.Area(triangle));
+                Assert.AreEqual(this._areas[i], triangle.Area);
             }
         }
 
@@ -59,23 +56,22 @@ namespace Tests
             for (var i = 0; i < _triangles.Count; i++)
             {
                 var triangle = _triangles[i];
-                Assert.AreEqual(this._perimeters[i], _triangleCalculate.Perimeter(triangle));
+                Assert.AreEqual(this._perimeters[i], triangle.Perimeter);
             }
         }
 
         [Test]
         public void TestRightTriangle()
         {
-            var rts = new RightTriangleCalculateStrategy();
-            var triangle = new TriangleBuilder().SetA(8).SetB(6).Build();
+            var triangle = new TriangleBuilder(new RightTriangleCalculateStrategy ()).SetA(8).SetB(6).Build();
             
-            Assert.AreEqual(24, rts.Area(triangle));
+            Assert.AreEqual(24, triangle.Area);
         }
 
         [Test]
         public void WrongTriangle()
         {
-            var trB = new TriangleBuilder().SetA(59).SetB(30).SetC(100);
+            var trB = new TriangleBuilder(new TriangleCalculateStrategy()).SetA(59).SetB(30).SetC(100);
             
             Assert.Throws<ArgumentException>(() => trB.Build());
         }

@@ -8,22 +8,31 @@ namespace TriangleWithDesignPatterns
         public double B { get; }
         public double C { get; }
 
-        public Triangle(double a, double b)
+        public double Area => this._triangleStrategy.Area(this);
+        public double Perimeter => this._triangleStrategy.Perimeter(this);
+
+        private ITriangleCalculateStrategy _triangleStrategy;
+
+        public Triangle(double a, double b, ITriangleCalculateStrategy triangleCalculateStrategy)
         {
             this.A = a;
             this.B = b;
             this.C = Math.Sqrt(this.A + this.B);
             
             CheckArgs();
+
+            this._triangleStrategy = triangleCalculateStrategy;
         }
         
-        public Triangle(double a, double b, double c)
+        public Triangle(double a, double b, double c, ITriangleCalculateStrategy triangleCalculateStrategy)
         {
             this.A = a;
             this.B = b;
             this.C = c;
 
             CheckArgs();
+
+            this._triangleStrategy = triangleCalculateStrategy;
         }
 
         private void CheckArgs()
