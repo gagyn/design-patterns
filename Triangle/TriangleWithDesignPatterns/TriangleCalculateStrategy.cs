@@ -13,7 +13,7 @@ namespace TriangleWithDesignPatterns
             double s3 = t.A - t.B + t.C;
             double s4 = -t.A + t.B + t.C;
 
-            return Math.Sqrt(s1 * s2 * s3 * s4) / 4;
+            return Math.Sqrt(s1 * s2 * s3 * s4) / 4.0;
         }
 
         public double Perimeter(IShape shape)
