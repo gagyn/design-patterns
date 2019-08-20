@@ -2,24 +2,21 @@
 
 namespace TriangleWithDesignPatterns
 {
-    public class TriangleCalculateStrategy : ICalculateStrategy
+    public class TriangleCalculateStrategy : ITriangleCalculateStrategy
     {
-        public double Area(IShape shape)
+        public double Area(Triangle triangle)
         {
-            var t = (Triangle) shape;
-            
-            double s1 = t.A + t.B + t.C;
-            double s2 = t.A + t.B - t.C;
-            double s3 = t.A - t.B + t.C;
-            double s4 = -t.A + t.B + t.C;
+            double s1 = triangle.A + triangle.B + triangle.C;
+            double s2 = triangle.A + triangle.B - triangle.C;
+            double s3 = triangle.A - triangle.B + triangle.C;
+            double s4 = -triangle.A + triangle.B + triangle.C;
 
             return Math.Sqrt(s1 * s2 * s3 * s4) / 4.0;
         }
 
-        public double Perimeter(IShape shape)
+        public double Perimeter(Triangle triangle)
         {
-            var t = (Triangle) shape;
-            return t.A + t.B + t.C;
+            return triangle.A + triangle.B + triangle.C;
         }
     }
 }

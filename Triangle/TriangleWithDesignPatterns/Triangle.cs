@@ -2,7 +2,7 @@ using System;
 
 namespace TriangleWithDesignPatterns
 {
-    public class Triangle : IShape
+    public class Triangle
     {
         public double A { get; }
         public double B { get; }
