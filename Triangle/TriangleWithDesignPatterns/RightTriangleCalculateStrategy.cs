@@ -2,12 +2,12 @@
 {
     public class RightTriangleCalculateStrategy : ITriangleCalculateStrategy
     {
-        public double Area(Triangle triangle)
+        public double CalculateArea(Triangle triangle)
         {
             return triangle.A * triangle.B / 2;
         }
 
-        public double Perimeter(Triangle triangle)
+        public double CalculatePerimeter(Triangle triangle)
         {
             return triangle.A + triangle.B + triangle.C;
         }

@@ -8,8 +8,8 @@ namespace TriangleWithDesignPatterns
         public double B { get; }
         public double C { get; }
 
-        public double Area => this._triangleStrategy.Area(this);
-        public double Perimeter => this._triangleStrategy.Perimeter(this);
+        public double Area => this._triangleStrategy.CalculateArea(this);
+        public double Perimeter => this._triangleStrategy.CalculatePerimeter(this);
 
         private ITriangleCalculateStrategy _triangleStrategy;
 
@@ -35,6 +35,11 @@ namespace TriangleWithDesignPatterns
             this._triangleStrategy = triangleCalculateStrategy;
         }
 
+        public void SetNewStrategy(ITriangleCalculateStrategy calculateStrategy) 
+            => this._triangleStrategy = calculateStrategy;
+
+        public override string ToString() => $"A: {A}, B: {B}, C: {C}";
+
         private void CheckArgs()
         {
             if (CheckIfTriangleCanExist() == false || CheckIfAllArgsAreBiggerThan0() == false)
@@ -55,7 +60,5 @@ namespace TriangleWithDesignPatterns
             
             return true;
         }
-
-        public override string ToString() => $"A: {A}, B: {B}, C: {C}";
     }
 }
