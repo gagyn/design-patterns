@@ -63,7 +63,7 @@ namespace Tests
         [Test]
         public void TestRightTriangle()
         {
-            var triangle = new TriangleBuilder(new RightTriangleCalculateStrategy ()).SetA(8).SetB(6).Build();
+            var triangle = new TriangleBuilder(new RightTriangleCalculateStrategy()).SetA(8).SetB(6).Build();
             
             Assert.AreEqual(24, triangle.Area);
         }

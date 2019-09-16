@@ -4,26 +4,23 @@ namespace TriangleWithDesignPatterns
 {
     public class Triangle
     {
-        public double A { get; }
-        public double B { get; }
-        public double C { get; }
+        public double A { get; protected set; }
+        public double B { get; protected set; }
+        public double C { get; protected set; }
 
         public double Area => this._triangleStrategy.CalculateArea(this);
         public double Perimeter => this._triangleStrategy.CalculatePerimeter(this);
 
-        private ITriangleCalculateStrategy _triangleStrategy;
+        protected ITriangleCalculateStrategy _triangleStrategy;
 
-        public Triangle(double a, double b, ITriangleCalculateStrategy triangleCalculateStrategy)
+        protected Triangle(double a, double b, ITriangleCalculateStrategy triangleCalculateStrategy)
         {
             this.A = a;
             this.B = b;
-            this.C = Math.Sqrt(this.A + this.B);
-            
-            CheckArgs();
 
             this._triangleStrategy = triangleCalculateStrategy;
         }
-        
+
         public Triangle(double a, double b, double c, ITriangleCalculateStrategy triangleCalculateStrategy)
         {
             this.A = a;
@@ -40,7 +37,7 @@ namespace TriangleWithDesignPatterns
 
         public override string ToString() => $"A: {A}, B: {B}, C: {C}";
 
-        private void CheckArgs()
+        protected void CheckArgs()
         {
             if (CheckIfTriangleCanExist() == false || CheckIfAllArgsAreBiggerThan0() == false)
                 throw new ArgumentException("This triangle cannot exist.");
