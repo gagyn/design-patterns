@@ -16,4 +16,9 @@
       <ProjectReference Include="..\TriangleWithDesignPatterns\TriangleWithDesignPatterns.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Builders\" />
+      <Folder Include="Strategies\" />
+    </ItemGroup>
+
 </Project>
