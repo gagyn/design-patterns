@@ -1,4 +1,6 @@
-namespace TriangleWithDesignPatterns
+using TriangleWithDesignPatterns.Models;
+
+namespace TriangleWithDesignPatterns.Strategies
 {
     public interface ITriangleCalculateStrategy
     {

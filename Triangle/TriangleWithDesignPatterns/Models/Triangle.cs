@@ -1,6 +1,7 @@
 using System;
+using TriangleWithDesignPatterns.Strategies;
 
-namespace TriangleWithDesignPatterns
+namespace TriangleWithDesignPatterns.Models
 {
     public class Triangle
     {

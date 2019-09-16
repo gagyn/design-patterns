@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using NUnit.Framework;
-using TriangleWithDesignPatterns;
+using TriangleWithDesignPatterns.Models;
+using TriangleWithDesignPatterns.Strategies;
 
 namespace Tests.Models
 {

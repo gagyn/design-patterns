@@ -1,4 +1,7 @@
-namespace TriangleWithDesignPatterns
+using TriangleWithDesignPatterns.Models;
+using TriangleWithDesignPatterns.Strategies;
+
+namespace TriangleWithDesignPatterns.Builders
 {
     public class TriangleBuilder
     {

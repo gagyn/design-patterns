@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TriangleWithDesignPatterns.Models;
+using TriangleWithDesignPatterns.Strategies;
 
-namespace TriangleWithDesignPatterns.Builder
+namespace TriangleWithDesignPatterns.Builders
 {
     public class RightTriangleBuilder : TriangleBuilder
     {
