@@ -4,16 +4,10 @@ using System.Text;
 using NUnit.Framework;
 using TriangleWithDesignPatterns;
 
-namespace Tests
+namespace Tests.Models
 {
     class TestModels
     {
-        [SetUp]
-        public void Setup()
-        {
-
-        }
-
         [Test]
         public void TestCreatingTriangles()
         {
