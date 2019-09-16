@@ -10,16 +10,23 @@ namespace TriangleWithDesignPatterns.Builder
         {
         }
 
+        public new RightTriangleBuilder SetA(double a) => (RightTriangleBuilder)base.SetA(a);
+        public new RightTriangleBuilder SetB(double b) => (RightTriangleBuilder)base.SetB(b);
+        public new RightTriangleBuilder SetC(double c) => (RightTriangleBuilder)base.SetC(c);
+
         public new Triangle Build()
         {
             if (A <= 0)
-                return new RightTriangle(B, C, TriangleStrategy);
-            if (B <= 0)
-                return new RightTriangle(A, C, TriangleStrategy);
-            if (C <= 0)
-                return new RightTriangle(A, B, TriangleStrategy);
+                A = Math.Sqrt(C * C - B * B);
+            else if (B <= 0)
+                B = Math.Sqrt(C * C - A * A);
+            else if (C <= 0)
+                C = Math.Sqrt(A * A + B * B);
 
-            return new RightTriangle(A, B, C, TriangleStrategy);
+            if (A < B && B < C)
+                return new Triangle(A, B, C, TriangleStrategy);
+
+            throw new ArgumentException("The triangle cannot be a right triangle!");
         }
     }
 }
