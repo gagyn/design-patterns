@@ -7,10 +7,10 @@ using TriangleWithDesignPatterns.Builder;
 
 namespace Tests.Builders
 {
-    class TestRightTriangleBuilder
+    class TestRightTriangleBuilder : ITestTriangleBuilder
     {
         [Test]
-        public void TestRightTriangleBuildingProcess()
+        public void TestTriangleBuildingProcess()
         {
             Assert.DoesNotThrow(
                 () => _ = new RightTriangleBuilder(new RightTriangleCalculateStrategy()).SetA(3).SetB(4).SetC(5).Build());
@@ -26,7 +26,7 @@ namespace Tests.Builders
         }
 
         [Test]
-        public void TestRightTriangleFailedBuildingProcess()
+        public void TestTriangleFailedBuildingProcess()
         {
             Assert.Throws<ArgumentException>(
                 () => _ = new RightTriangleBuilder(new RightTriangleCalculateStrategy()).SetA(1).SetB(4).SetC(1).Build());

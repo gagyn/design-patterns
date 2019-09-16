@@ -7,7 +7,7 @@ using TriangleWithDesignPatterns.Builder;
 
 namespace Tests.Builders
 {
-    class TestTriangleBuilder
+    class TestTriangleBuilder : ITestTriangleBuilder
     {
         [Test]
         public void TestTriangleBuildingProcess()

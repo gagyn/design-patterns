@@ -27,7 +27,7 @@ namespace Tests.Strategies
         {
             foreach (var tuple in _list)
             {
-                Assert.AreEqual(tuple.Perimeter, tuple.Triangle.Perimeter, 0.00001);
+                Assert.AreEqual(tuple.Perimeter, tuple.Perimeter, 0.00001);
             }
         }
     }
